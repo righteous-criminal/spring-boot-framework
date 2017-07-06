@@ -4,6 +4,7 @@
   "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
+	<!-- http://mbg.cndocs.tk/index.html 配置文档，以下为基本配置 -->
 	<context id="testTables" targetRuntime="MyBatis3">
 	
 		<!-- JavaBean 实现 序列化 接口 -->
