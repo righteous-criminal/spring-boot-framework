@@ -1,6 +1,7 @@
 
 
 import java.io.File;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,14 @@ public class GeneratorSqlmap {
 
 		List<String> warnings = new ArrayList<String>();
 		boolean overwrite = true;
-		File configFile = new File("generatorConfig.xml"); 
+		//由于路径的改变
+		//单独提取时使用
+		//File configFile = new File("generatorConfig.xml");
+		//在此项目中使用
+		String path  = GeneratorSqlmap.class.getResource("/generatorConfig.xml").toString();
+		String realPath = path.substring(5, path.length());
+		File configFile = new File(realPath);
+
 		ConfigurationParser cp = new ConfigurationParser(warnings);
 		Configuration config = cp.parseConfiguration(configFile);
 		DefaultShellCallback callback = new DefaultShellCallback(overwrite);
